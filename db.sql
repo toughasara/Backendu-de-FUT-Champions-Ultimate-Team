@@ -15,6 +15,7 @@ CREATE TABLE nationality (
 
 CREATE TABLE players (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    name_player VARCHAR(100),
     id_club INT,
     id_natio INT,
     photo VARCHAR(255),
@@ -82,23 +83,24 @@ INSERT INTO nationality (nom_natio, flag) VALUES
 ('Canada', 'https://cdn.sofifa.net/flags/ca.png');
 
 
-INSERT INTO players (id_club, id_natio, photo, position, statue) VALUES
-(1, 1, 'https://cdn.sofifa.net/players/158/023/25_120.png', 'RW', 'not_active'),
-(2, 2, 'https://cdn.sofifa.net/players/020/801/25_120.png', 'ST', 'not_active'),
-(3, 3, 'https://cdn.sofifa.net/players/192/985/25_120.png', 'CM', 'not_active'),
-(4, 4, 'https://cdn.sofifa.net/players/231/747/25_120.png', 'ST', 'not_active'),
-(5, 5, 'https://cdn.sofifa.net/players/203/376/25_120.png', 'CB', 'not_active'),
-(6, 6, 'https://cdn.sofifa.net/players/205/452/25_120.png', 'CB', 'not_active'),
-(7, 7, 'https://cdn.sofifa.net/players/190/871/25_120.png', 'LW', 'not_active'),
-(8, 8, 'https://cdn.sofifa.net/players/192/985/25_120.png', 'RW', 'not_active'),
-(9, 9, 'https://cdn.sofifa.net/players/212/622/25_120.png', 'CM', 'not_active'),
-(10, 10, 'https://cdn.sofifa.net/players/177/003/25_120.png', 'CM', 'not_active'),
-(11, 11, 'https://cdn.sofifa.net/players/238/794/25_120.png', 'LW', 'not_active'),
-(12, 12, 'https://cdn.sofifa.net/players/231/410/25_120.png', 'LW', 'not_active'),
-(13, 4, 'https://cdn.sofifa.net/players/165/153/25_120.png', 'ST', 'not_active'),
-(14, 13, 'https://cdn.sofifa.net/players/239/085/25_120.png', 'ST', 'not_active'),
-(15, 4, 'https://cdn.sofifa.net/players/215/914/25_120.png', 'CDM', 'not_active'),
-(16, 14, 'https://cdn.sofifa.net/players/234/396/25_120.png', 'LB', 'not_active');
+INSERT INTO players (id_club, id_natio, name_player, photo, position, statue) VALUES
+(1, 1, 'Lionel Messi', 'https://cdn.sofifa.net/players/158/023/25_120.png', 'RW', 'not_active'),
+(2, 2, 'Cristiano Ronaldo', 'https://cdn.sofifa.net/players/020/801/25_120.png', 'ST', 'not_active'),
+(3, 3, 'Kevin De Bruyne', 'https://cdn.sofifa.net/players/192/985/25_120.png', 'CM', 'not_active'),
+(4, 4, 'Kylian Mbappé', 'https://cdn.sofifa.net/players/231/747/25_120.png', 'ST', 'not_active'),
+(5, 5, 'Virgil van Dijk', 'https://cdn.sofifa.net/players/203/376/25_120.png', 'CB', 'not_active'),
+(6, 6, 'Antonio Rudiger', 'https://cdn.sofifa.net/players/205/452/25_120.png', 'CB', 'not_active'),
+(7, 7, 'Neymar Jr', 'https://cdn.sofifa.net/players/190/871/25_120.png', 'LW', 'not_active'),
+(8, 8, 'Mohamed Salah', 'https://cdn.sofifa.net/players/192/985/25_120.png', 'RW', 'not_active'),
+(9, 9, 'Joshua Kimmich', 'https://cdn.sofifa.net/players/212/622/25_120.png', 'CM', 'not_active'),
+(10, 10, 'Luka Modrić', 'https://cdn.sofifa.net/players/177/003/25_120.png', 'CM', 'not_active'),
+(11, 11, 'Vinicius Junior', 'https://cdn.sofifa.net/players/238/794/25_120.png', 'LW', 'not_active'),
+(12, 12, 'Brahim Diáz', 'https://cdn.sofifa.net/players/231/410/25_120.png', 'LW', 'not_active'),
+(13, 4, 'Karim Benzema', 'https://cdn.sofifa.net/players/165/153/25_120.png', 'ST', 'not_active'),
+(14, 13, 'Erling Haaland', 'https://cdn.sofifa.net/players/239/085/25_120.png', 'ST', 'not_active'),
+(15, 4, 'Golo Kanté', 'https://cdn.sofifa.net/players/215/914/25_120.png', 'CDM', 'not_active'),
+(16, 14, 'Alphonso Davies', 'https://cdn.sofifa.net/players/234/396/25_120.png', 'LB', 'not_active');
+
 
 
 INSERT INTO goalkeeper (id_player, rating, diving, handling, kicking, reflexes, speed, positioning) VALUES
