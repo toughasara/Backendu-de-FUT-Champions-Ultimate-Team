@@ -1,3 +1,14 @@
+<?php
+    include 'connect.php';
+
+    $sql = " SELECT players.id, players.name_player as name, players.position, players.photo, nationality.flag as flag, clubs.logo as logo
+        FROM players
+        JOIN nationality ON players.id_natio = nationality.id
+        JOIN clubs ON players.id_club = clubs.id";
+
+    $result = $conn->query(query: $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,19 +55,10 @@
                 </thead>
                 <tbody>
                     <?php
-                        include 'connect.php';
-                        //read all from database
-                        $sql = "SELECT * FROM backend_ultimate_team";
-                        $result = $connection->query($sql);
-
-                        if(!$result){
-                            die("invalid query: ". $connection->error);
-                        }
-
                         while($row = $result->fetch_assoc()){
-                            echo "
+                            echo '
                             <tr>
-                                <td>' . $row['name'] . '</td>
+                                <td>' . $row['id'] . '</td>
                                 <td>' . $row['name'] . '</td>
                                 <td><img src="' . $row['photo'] . '" alt="Player Photo" class="w-12 h-12 rounded-full object-cover"></td>
                                 <td><img src="' . $row['flag'] . '" alt="Player Photo" class="w-12 h-12 rounded-full object-cover"></td>
@@ -67,10 +69,11 @@
                                     <a class="btn btn-danger btn-sm" href="/delete.php?id=$row[id]">Delete</a>
                                 </td>
                             </tr>
-                            ";
+                            ';
                         }
                     ?>
                 </tbody>
+            </table>
             </table>
             </div>
         </section>

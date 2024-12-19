@@ -1,11 +1,39 @@
 <?php
     include 'connect.php';
 
-    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouter_player"])){
+    // $name = "";
+    // $photo = "";
+    // $club = "";
+    // $logo = "";
+    // $nationality = "";
+    // $flag = "";
+    // $position = "";
+
+    // $ratingnot = "";
+    // $pacing = "";
+    // $shooting = "";
+    // $passing = "";
+    // $dribbling = "";
+    // $defending = "";
+    // $physical = "";
+
+    // $ratinggk = "";
+    // $diving = "";
+    // $handling = "";
+    // $kicking = "";
+    // $reflexes = "";
+    // $speed = "";
+    // $positioning = "";
+
+    // $errorMessage = "";
+    // $successMessage = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        var_dump($_POST);
         $name = $_POST["name"];
         echo($name);
-        echo('yyyyyyyyyyy');
-        
+        echo('sara');
+
         $photo = $_POST["photo"];
         $club = $_POST["club"];
         $logo = $_POST["logo"];
@@ -30,7 +58,7 @@
         $positioning = $_POST["positioning"];
         
 
-        // nationalities
+        // <!-- nationalities -->
         $sql = "INSERT INTO nationality (nom_natio, flag) 
                 VALUES ('$nationality', '$flag')";
         $result = $conn->query($sql); 
@@ -104,50 +132,62 @@
         </section>
         <section id="contenu" class="row col-9">
             <div class="formulaire">
+                <?php
+                    // if(!empty($errorMessage)){
+                    //     echo "
+                    //     <div class="row mb-3">
+                    //         <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    //             <strong>$errorMessage</strong>
+                    //             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+                    //         </div>
+                    //     </div>
+                    //     ";
+                    // }
+                ?>
                 <form id="add-player-form" method="POST" action="form.php">
                     <h3>add a player</h3>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-name">the name:</label>
-                        <input type="text" id="player-name" class="infos" name="name">
+                        <input type="text" id="player-name" class="infos" name="name" required>
                         <p id="erreur" class="text-danger d-none">Veuillez remplir ce champ</p>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-photo">player photo:</label>
-                        <input type="url" id="player-photo" class="urls" name="photo">
+                        <input type="url" id="player-photo" class="urls" name="photo" required>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-club">the club :</label>
-                        <input type="text" id="player-club" class="text" name="club">
+                        <input type="text" id="player-club" class="text" name="club" required>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-logo">the logo url :</label>
-                        <input type="url" id="player-logo" class="urls" name="logo">
+                        <input type="url" id="player-logo" class="urls" name="logo" required>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-nationality">the nationality :</label>
-                        <input type="text" id="player-nationality" class="text" name="nationality">
+                        <input type="text" id="player-nationality" class="text" name="nationality" required>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-flag">the flag url :</label>
-                        <input type="url" id="player-flag" class="urls" name="flag">
+                        <input type="url" id="player-flag" class="urls" name="flag" required>
                     </div>
 
                     <!-- innfoooormaaatiionnnnn -->
                     <div class="input-group">
                         <label for="player-position">the position:</label>
-                        <select id="player-position" name="position" class="infos btn btn-success">
+                        <select id="player-position" name="position" class="infos btn btn-success" required>
                             <option value="" disabled selected>-- Please select a position --</option>
                             <option value="GK">Gardien de but (GK)</option>
                             <option value="LB">Latéral gauche (LB)</option>
@@ -234,8 +274,20 @@
                             <input type="number" id="player-positioning" class="numerosgk" name="positioning" min="10" max="100">
                         </div>
                     </div>
+                    <?php
+                        // if(!empty($successMessage)){
+                        //     echo "
+                        //     <div class="row mb-3">
+                        //         <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        //             <strong>$successMessage</strong>
+                        //             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+                        //         </div>
+                        //     </div>
+                        //     ";
+                        // }
+                    ?>
                     <div class="d-flex justify-content-center">
-                        <button id="add-player-button" type="submit" name="ajouter_player" class="btn btn-secondary w-75"><strong>add palyer</strong></button>
+                        <button id="add-player-button" type="submit" class="btn btn-secondary w-75"><strong>add palyer</strong></button>
                     </div>   
                 </form>
             </div>
