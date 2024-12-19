@@ -1,5 +1,5 @@
-CREATE DATABASE backend_ultimate_team;
-USE backend_ultimate_team;
+CREATE DATABASE br8_ultm;
+USE br8_ultm;
 
 CREATE TABLE clubs (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,9 +15,9 @@ CREATE TABLE nationality (
 
 CREATE TABLE players (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name_player VARCHAR(100),
     id_club INT,
     id_natio INT,
+    name_player VARCHAR(100),
     photo VARCHAR(255),
     position VARCHAR(100),
     statue VARCHAR(100),
